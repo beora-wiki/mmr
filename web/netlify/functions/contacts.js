@@ -17,20 +17,10 @@ exports.handler = async function() {
       res.on('end', () => {
         try {
           const json = JSON.parse(data)
-          const rows = json.values || []
-          const contacts = rows.slice(1)
-            .filter(row => row[4] && row[4].toLowerCase().includes('yes'))
-            .map(row => ({
-              name:  row[0] || '',
-              email: row[1] || '',
-              phone: row[2] || '',
-              city:  row[3] || '',
-            }))
-            .filter(c => c.name)
           resolve({
             statusCode: 200,
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-            body: JSON.stringify({ contacts })
+            body: JSON.stringify({ raw: json.values })
           })
         } catch(e) {
           resolve({ statusCode: 500, body: JSON.stringify({ error: 'Parse failed' }) })
