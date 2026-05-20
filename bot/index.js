@@ -1,9 +1,9 @@
 const { Bot } = require("grammy")
-const Anthropic = require("@anthropic-ai/sdk")
+const { default: Anthropic } = require("@anthropic-ai/sdk")
 const fetch = (...args) => import("node-fetch").then(({default: f}) => f(...args))
 
 const bot    = new Bot(process.env.TELEGRAM_BOT_TOKEN)
-const claude = new Anthropic.default({ apiKey: process.env.ANTHROPIC_API_KEY })
+const claude = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
 const ICS_URL     = process.env.SCHEDULE_ICS_URL
 const WEATHER_KEY = process.env.OPENWEATHER_API_KEY
