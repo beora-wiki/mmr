@@ -85,7 +85,6 @@ export default function DirectoryPage() {
             {c.email && <div className="contact-meta">{c.email}</div>}
             {c.phone && <div className="contact-meta">{c.phone}</div>}
           </div>
-          <button className="contact-add-btn" onClick={() => downloadVCard(c)}>+ Add</button>
         </div>
       ))}
 

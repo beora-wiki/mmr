@@ -73,16 +73,7 @@ export default function SchedulePage() {
               {ev.description && ev.description.length > 0 && (
                 <div className="event-desc">{ev.description}</div>
               )}
-
-              <div className="event-actions">
-                <a href={googleCalUrl(ev)} target="_blank" rel="noreferrer" className="event-btn">
-                  <CalIcon/> Google
-                </a>
-                <button className="event-btn" onClick={() => downloadICS([ev], ev.title.replace(/[^a-z0-9]/gi,"-") + ".ics")}>
-                  <DownIcon/> iCal
-                </button>
-              </div>
-            </div>
+</div>
           ))}
         </div>
       ))}

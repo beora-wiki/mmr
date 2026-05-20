@@ -14,7 +14,7 @@ export default function App() {
     <>
       <header className="app-header">
         <div><h1>Memorable Retreat</h1><p>Santa Cruz · May 29-31</p></div>
-        <a href={"tel:" + jordan.phone} className="sos-btn">SOS</a>
+        <a href={"tel:" + jordan.phone} className="host-btn">Contact Host</a>
       </header>
       <main className="app-main">
         {page === "schedule"  && <SchedulePage />}
