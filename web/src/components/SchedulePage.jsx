@@ -8,7 +8,7 @@ function fmt(d, mode) {
 }
 function groupByDay(events) {
   return events.reduce((acc, ev) => {
-    const key = ev.start.toDateString()
+    const key = ev.start.toLocaleDateString("en-US", {timeZone:"America/Los_Angeles"})
     if (!acc[key]) acc[key] = []
     acc[key].push(ev)
     return acc
