@@ -22,13 +22,13 @@ function CalIcon()  { return <svg width="13" height="13" viewBox="0 0 24 24" fil
 function DownIcon() { return <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> }
 function PinIcon()  { return <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> }
 
-export default function SchedulePage() {
+export default function SchedulePage({ setPage }) {
   const { events, loading, error } = useICS()
 
   if (loading) return (
     <div className="page">
       <h2 className="page-title">Schedule</h2>
-      <p className="page-sub">May 29–31 · Villa Maria Del Mar</p>
+      <p className="page-sub">May 29–31 · <button onClick={() => setPage && setPage("venue")} style={{color:"var(--primary)",fontWeight:600,background:"none",border:"none",cursor:"pointer",fontSize:"inherit",padding:0,textDecoration:"underline"}}>Villa Maria Del Mar</button></p>
       <WeatherWidget/>
       <div className="placeholder"><div className="spinner"/><p style={{marginTop:16,color:"var(--muted)"}}>Loading schedule...</p></div>
     </div>
@@ -46,7 +46,7 @@ export default function SchedulePage() {
   return (
     <div className="page">
       <h2 className="page-title">Schedule</h2>
-      <p className="page-sub">May 29–31 · Villa Maria Del Mar</p>
+      <p className="page-sub">May 29–31 · <button onClick={() => setPage && setPage("venue")} style={{color:"var(--primary)",fontWeight:600,background:"none",border:"none",cursor:"pointer",fontSize:"inherit",padding:0,textDecoration:"underline"}}>Villa Maria Del Mar</button></p>
       <WeatherWidget/>
 
       {events.length > 0 && (

@@ -20,7 +20,7 @@ export default function App() {
       </header>
 
       <main className="app-main">
-        {page === "schedule"  && <SchedulePage />}
+        {page === "schedule"  && <SchedulePage setPage={setPage} />}
         {page === "venue"     && <VenuePage />}
         {page === "directory" && <DirectoryPage />}
         {page === "area"      && <AreaGuidePage />}
