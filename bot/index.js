@@ -90,7 +90,7 @@ function formatSchedule(events) {
   return lines.join("\n")
 }
 
-function getTodayContext(events) {
+function getScheduleContext(events) {
   const now    = new Date()
   const today  = now.toLocaleDateString("en-US", { weekday:"long", month:"long", day:"numeric", timeZone:"America/Los_Angeles" })
   const todayEvents = events.filter(ev => {
@@ -192,7 +192,7 @@ bot.on("message:text", async ctx => {
   try {
     await ctx.reply("...")
     const events          = await fetchSchedule()
-    const scheduleContext = getTodayContext(events)
+    const scheduleContext = getScheduleContext(events)
     const reply           = await askClaude(text, scheduleContext)
     await ctx.reply(reply)
   } catch(e) {
