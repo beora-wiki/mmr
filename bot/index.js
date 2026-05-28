@@ -203,6 +203,22 @@ bot.command("aa", ctx => ctx.reply(
   `Local AA Meetings near the venue:\n\n7:00 AM daily — Serenity Group\n226 Cathcart St, Santa Cruz\n\n7:30 AM daily — Daily Reflections\n444 Encinal St, Santa Cruz\n\n12:00 PM daily — Santa Cruz Central\n1111 Soquel Ave, Santa Cruz\n\n7:00 PM daily — Evening Group\n226 Cathcart St, Santa Cruz\n\nVerify times at santa-cruz-aa.org`
 ))
 
+
+bot.command("directory", async ctx => {
+  await ctx.reply("Loading directory...")
+  const contacts = await fetchContacts()
+  if (!contacts.length) return ctx.reply("No contacts loaded. Check SHEETS_API_KEY and SHEETS_SPREADSHEET_ID in Railway variables.")
+  const lines = ["Retreat Directory", "─".repeat(30)]
+  contacts.forEach(c => {
+    lines.push("")
+    lines.push(c.name + (c.room ? "  —  Room " + c.room : ""))
+    if (c.city)  lines.push(c.city)
+    if (c.email) lines.push(c.email)
+    if (c.phone) lines.push(c.phone)
+  })
+  await ctx.reply(lines.join("\n"))
+})
+
 bot.command("schedule", async ctx => {
   await ctx.reply("Fetching schedule...")
   const events = await fetchSchedule()
