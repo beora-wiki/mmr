@@ -1,4 +1,5 @@
 import { useState } from "react"
+import VenueGallery from "./VenueGallery"
 import { VENUE, WIFI } from "../data/static"
 
 function CopyIcon() {
@@ -76,6 +77,8 @@ export default function VenuePage() {
       <div className="card">
         {VENUE.rules.map((r,i) => <div key={i} className="row-item"><div className="row-name" style={{fontSize:14}}>{r}</div></div>)}
       </div>
+
+      <VenueGallery />
 
       {/* History */}
       <div className="section-header">About This Place</div>
