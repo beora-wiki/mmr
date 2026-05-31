@@ -99,3 +99,8 @@ a { color:inherit; text-decoration:none; } button { cursor:pointer; border:none;
 .lightbox-nav { display:flex; align-items:center; gap:24px; margin-top:14px; }
 .lightbox-btn { background:rgba(255,255,255,0.15); color:#fff; border:none; border-radius:50%; width:46px; height:46px; font-size:26px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1; }
 .lightbox-count { color:rgba(255,255,255,0.5); font-size:13px; min-width:40px; text-align:center; }
+
+.tab-bar { display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; padding-bottom:2px; margin-bottom:20px; }
+.tab-bar::-webkit-scrollbar { display:none; }
+.tab-btn { flex-shrink:0; padding:8px 18px; border-radius:100px; border:1.5px solid var(--border); background:var(--card); font-size:14px; font-weight:500; color:var(--mid); cursor:pointer; white-space:nowrap; transition:all .15s; }
+.tab-btn.active { background:var(--primary); border-color:var(--primary); color:#fff; }
