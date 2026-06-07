@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/" />
+    <title>Beora · Redirecting</title>
+    <script>
+      // GCS website hosting serves this file for any unmatched path.
+      // Preserve the path so React Router can pick it up after the redirect.
+      (function() {
+        var p = window.location.pathname + window.location.search + window.location.hash
+        sessionStorage.setItem("beora_redirect_path", p)
+        window.location.replace("/")
+      })()
+    </script>
+  </head>
+  <body>Redirecting…</body>
+</html>
